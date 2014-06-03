@@ -392,7 +392,7 @@ Crawler.prototype.printResults = function () {
         Logger.info(this, state.id + ": " + state.url);
         if (writeToFile) {
             dotFile.writeLine(state.id + " [label=\"" + state.id + "\"];");
-            dotComments.push("/* #" + state.id + ": " + state.url + " */");
+            dotComments.push("#" + state.id + ": " + state.url + "");
         }
 
         for (var toId in state.transitions) {
@@ -401,8 +401,8 @@ Crawler.prototype.printResults = function () {
                 Logger.info(this, "Transition: " + state.id + "->" + toId + ": " + transition.key() + " " + transition.event());
 
                 if (writeToFile) {
-                    dotFile.writeLine(state.id + "->" + toId + " [label=\"" + toId + "-" + i + "\"];");
-                    dotComments.push("/* #" + state.id + "->" + toId + "-" + i + ": " + transition.selector + ", " + transition.event + " */");
+                    dotFile.writeLine(state.id + "->" + toId + " [label=\"" + state.id + "->" + toId + "-" + i + "\"];");
+                    dotComments.push("#" + state.id + "->" + toId + "-" + i + ": " + transition.key() + ", " + transition.event() + "");
                 }
             }
         }
