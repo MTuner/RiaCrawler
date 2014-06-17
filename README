@@ -1,0 +1,14 @@
+RiaCrawler is a tool to crawl dynamic web applications.
+The application loads webpage, detects and executes JavaScript event handlers and iteratively constructs
+webpage state graph.
+WARNING: the application works as an experimental prototype and is not properly tested.
+
+It is written as PhantomJS client script (http://phantomjs.org/) and is licensed under the GPLv2 (see COPYING file).
+
+Usage example:
+$ /path/to/phantomjs main.js --target=http://target.url/ --config=configs/crawler.config
+
+Config description:
+config/README.config
+
+
